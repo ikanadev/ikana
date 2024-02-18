@@ -1,3 +1,3 @@
 <template>
-	<NuxtPage />
+	<h1>WIP</h1>
 </template>
