@@ -1,0 +1,49 @@
+/* USED ONLY FOR COLORS, everything else goes to variables.scss */
+html {
+    /* LIGHT */
+    --primary-light: #2f9e44;
+    --text-1-light: #343a40;
+    --text-2-light: #495057;
+    --surface-1-light: #f8f9fa;
+    --surface-2-light: #f1f3f5;
+
+    /* DARK */
+    --primary-dark: #37b24d;
+    --text-1-dark: #dee2e6;
+    --text-2-dark: #adb5bd;
+    --surface-1-dark: #0d0f12;
+    --surface-2-dark: #16191d;
+}
+
+@mixin light-vars {
+    color-scheme: light;
+    --primary: var(--primary-light);
+    --text-1: var(--text-1-light);
+    --text-2: var(--text-2-light);
+    --surface-1: var(--surface-1-light);
+    --surface-2: var(--surface-2-light);
+}
+
+@mixin dark-vars {
+    color-scheme: dark;
+    --primary: var(--primary-dark);
+    --text-1: var(--text-1-dark);
+    --text-2: var(--text-2-dark);
+    --surface-1: var(--surface-1-dark);
+    --surface-2: var(--surface-2-dark);
+}
+
+html[color-scheme="light"] {
+    @include light-vars;
+}
+html[color-scheme="dark"] {
+    @include dark-vars;
+}
+:root {
+    @include light-vars;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include dark-vars;
+    }
+}
