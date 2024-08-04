@@ -33,17 +33,19 @@ html {
     --surface-2: var(--surface-2-dark);
 }
 
-html[color-scheme="light"] {
+html[data-theme="light"] {
     @include light-vars;
 }
-html[color-scheme="dark"] {
+html[data-theme="dark"] {
     @include dark-vars;
 }
 :root {
-    @include light-vars;
+    @include dark-vars;
 }
+/* In case we implement auto theme
 @media (prefers-color-scheme: dark) {
     :root {
         @include dark-vars;
     }
 }
+*/
