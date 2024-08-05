@@ -2,17 +2,6 @@
 
 <template>
     <header>
-        <!--
-	<nav>
-		<div class="nav__cont">
-			<img src="/logo.svg" alt="Logo" class="nav__logo" />
-			<div class="nav__spacer" />
-			<div class="nav__theme-cont">
-				<ThemeToggle />
-			</div>
-		</div>
-	</nav>
-	-->
         <div class="header__cont">
             <div class="header__image">
                 <Glep />
@@ -42,26 +31,6 @@ header {
     position: relative;
 }
 
-/* nav styles */
-.nav__cont {
-    width: 100%;
-    max-width: $content-width;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-}
-.nav__spacer {
-    flex: 1;
-}
-.nav__theme-cont {
-    width: var(--size-7);
-}
-.nav__logo {
-    width: var(--size-6);
-    height: auto;
-}
-
-/* header styles */
 .gradient {
     z-index: -1;
     position: absolute;

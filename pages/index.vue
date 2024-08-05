@@ -1,4 +1,4 @@
 <template>
+    <Navigation />
     <Header />
-    <ThemeToggleBtn />
 </template>
