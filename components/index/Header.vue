@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Glep from "./Glep.vue";
+</script>
 
 <template>
     <header>
@@ -81,14 +83,14 @@ header {
 }
 .header__slogan {
     margin-top: $size-2;
-    font-size: $font-size-xl;
+    font-size: $font-size-2xl;
     font-weight: 400;
     letter-spacing: -0.05em;
     text-align: center;
     line-height: 1.1;
 }
 .header__slogan--primary {
-    font-size: $font-size-xl;
+    font-size: $font-size-2xl;
     font-weight: 600;
     color: var(--primary);
 }

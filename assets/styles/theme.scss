@@ -6,6 +6,7 @@ html {
     --text-2-light: #495057;
     --surface-1-light: #f8f9fa;
     --surface-2-light: #f1f3f5;
+    --surface-2-transp-light: #eef0f277;
 
     /* DARK */
     --primary-dark: #37b24d;
@@ -13,6 +14,7 @@ html {
     --text-2-dark: #adb5bd;
     --surface-1-dark: #0d0f12;
     --surface-2-dark: #16191d;
+    --surface-2-transp-dark: #16191d77;
 }
 
 @mixin light-vars {
@@ -22,6 +24,7 @@ html {
     --text-2: var(--text-2-light);
     --surface-1: var(--surface-1-light);
     --surface-2: var(--surface-2-light);
+    --surface-2-transp: var(--surface-2-transp-light);
 }
 
 @mixin dark-vars {
@@ -31,6 +34,7 @@ html {
     --text-2: var(--text-2-dark);
     --surface-1: var(--surface-1-dark);
     --surface-2: var(--surface-2-dark);
+    --surface-2-transp: var(--surface-2-transp-dark);
 }
 
 html[data-theme="light"] {

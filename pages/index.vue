@@ -1,4 +1,9 @@
+<script setup lang="ts"></script>
+
 <template>
     <Navigation />
-    <Header />
+    <IndexHeader />
+    <IndexAbout />
 </template>
+
+<style scoped></style>
