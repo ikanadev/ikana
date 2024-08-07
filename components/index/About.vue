@@ -6,13 +6,15 @@ import Bolivia from "./Bolivia.vue";
     <section class="about">
         <BgLines />
         <div class="container">
-            <TransparentContainer>
-                <p>Presentation cover</p>
+            <TransparentContainer class="intro">
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Explicabo at placeat dolore corrupti atque ipsa. Possimus
-                    pariatur nulla quasi ducimus alias non dolorum eveniet fugit
-                    modi vitae? Voluptates, repellendus quod.
+                    Hi, I'm Kevin Vargas. I build Web and Mobile applications.
+                </p>
+                <p>
+                    When I'm not actively coding and developing projects, you'll
+                    likely find me engaged with content related to mathematics,
+                    economics, or open source software - areas I'm particularly
+                    passionate about.
                 </p>
             </TransparentContainer>
             <TransparentContainer class="quote">
@@ -27,13 +29,13 @@ import Bolivia from "./Bolivia.vue";
             </div>
             <TransparentContainer>
                 <p class="about-info">
-                    <span>Name:</span>
-                    <span>Kevin Vargas</span>
+                    <span>Role:</span>
+                    <span>FullStack Dev</span>
                 </p>
             </TransparentContainer>
             <TransparentContainer class="bolivia-item">
                 <p class="about-info">
-                    <span>De:</span>
+                    <span>Based in:</span>
                     <span>Bolivia</span>
                 </p>
                 <div class="bolivia">
@@ -57,11 +59,23 @@ import Bolivia from "./Bolivia.vue";
 </template>
 
 <style scoped lang="scss">
+.intro p:first-child {
+    font-size: $font-size-2xl;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+.intro p:last-child {
+    margin-top: $size-5;
+    color: var(--text-2);
+}
 .quote blockquote {
     padding-left: 0.6em;
     text-indent: -0.6em;
     font-style: italic;
+    letter-spacing: -0.04em;
     margin-bottom: $size-1;
+    color: var(--text-2);
 }
 .quote blockquote::before {
     content: open-quote;
@@ -71,6 +85,7 @@ import Bolivia from "./Bolivia.vue";
 }
 .quote p {
     text-align: right;
+    font-weight: 400;
 }
 
 .picture {
@@ -93,13 +108,11 @@ import Bolivia from "./Bolivia.vue";
 .about-info {
     display: flex;
     justify-content: space-between;
-    font-size: $font-size-md;
 }
 .about-info span:first-child {
     color: var(--text-2);
 }
 .about-info span:last-child {
-    font-size: $font-size-lg;
     font-weight: 500;
 }
 .bolivia-item:hover svg {
@@ -114,6 +127,7 @@ import Bolivia from "./Bolivia.vue";
     transition: all 0.5s ease;
     filter: saturate(1);
 }
+
 .about {
     padding-top: $size-10;
     position: relative;
@@ -129,6 +143,8 @@ import Bolivia from "./Bolivia.vue";
     gap: $size-2;
     grid-template-rows: repeat(7, auto);
     grid-template-columns: repeat(2, 1fr);
+    font-size: $font-size-lg;
+    line-height: 1.4;
 }
 .container div:nth-child(1) {
     grid-area: span 1 / span 2;
