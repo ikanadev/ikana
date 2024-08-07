@@ -1,6 +1,7 @@
 $md-breakpoint: 769px;
 
-$content-width: 1000px;
+$content-width: 1024px;
+$content-padding: clamp(1rem, 2vw, 1.5rem);
 
 /* spacing */
 $size-1: 0.25rem;

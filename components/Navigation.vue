@@ -13,12 +13,18 @@
 </template>
 
 <style scoped lang="scss">
+nav {
+    position: sticky;
+    top: $size-4;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
 .nav__cont {
-    width: 100%;
-    max-width: $content-width;
     margin-left: auto;
     margin-right: auto;
     display: flex;
+    background: var(--surface-1);
 }
 .nav__spacer {
     flex: 1;

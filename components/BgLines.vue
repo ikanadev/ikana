@@ -23,22 +23,11 @@ function generatePath(xDistance: number, yOrigin: number, yDistance: number) {
         width="1024"
         height="200"
         viewBox="0 0 1024 200"
-        stroke-width="0.4"
+        stroke-width="0.5"
         stroke="currentColor"
         fill="none"
     >
-        <path :d="generatePath(128, 80, 20)">
-            <animateTransform
-                attributeName="transform"
-                attributeType="XML"
-                type="translate"
-                from="0"
-                to="-512"
-                repeatCount="indefinite"
-                dur="11s"
-            />
-        </path>
-        <path :d="generatePath(128, 100, 20)">
+        <path :d="generatePath(128, 50, 20)">
             <animateTransform
                 attributeName="transform"
                 attributeType="XML"
@@ -49,7 +38,18 @@ function generatePath(xDistance: number, yOrigin: number, yDistance: number) {
                 dur="17s"
             />
         </path>
-        <path :d="generatePath(256, 120, 28)">
+        <path :d="generatePath(128, 80, 20)">
+            <animateTransform
+                attributeName="transform"
+                attributeType="XML"
+                type="translate"
+                from="0"
+                to="-512"
+                repeatCount="indefinite"
+                dur="23s"
+            />
+        </path>
+        <path :d="generatePath(256, 110, 28)">
             <animateTransform
                 attributeName="transform"
                 attributeType="XML"
@@ -73,7 +73,7 @@ function generatePath(xDistance: number, yOrigin: number, yDistance: number) {
     top: 0;
     left: -10%;
     transform: rotate(-10deg);
-    opacity: 0.6;
+    opacity: 0.8;
     z-index: -1;
 }
 </style>

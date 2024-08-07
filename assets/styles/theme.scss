@@ -6,7 +6,7 @@ html {
     --text-2-light: #495057;
     --surface-1-light: #f8f9fa;
     --surface-2-light: #f1f3f5;
-    --surface-2-transp-light: #eef0f277;
+    --surface-2-transp-light: #eef0f280;
 
     /* DARK */
     --primary-dark: #37b24d;
@@ -14,7 +14,7 @@ html {
     --text-2-dark: #adb5bd;
     --surface-1-dark: #0d0f12;
     --surface-2-dark: #16191d;
-    --surface-2-transp-dark: #16191d77;
+    --surface-2-transp-dark: #16191d60;
 }
 
 @mixin light-vars {

@@ -39,7 +39,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,6 +65,7 @@ header {
 .header__cont {
     width: 100%;
     max-width: $content-width;
+    padding: $content-padding;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -100,6 +101,9 @@ header {
     padding-right: $size-8;
 }
 @media (min-width: $md-breakpoint) {
+    .gradient {
+        bottom: 0;
+    }
     .header__cont {
         flex-direction: row-reverse;
     }

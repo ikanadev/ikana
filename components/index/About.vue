@@ -15,12 +15,16 @@ import Bolivia from "./Bolivia.vue";
                     modi vitae? Voluptates, repellendus quod.
                 </p>
             </TransparentContainer>
-            <TransparentContainer>
-                <div>Random cool quote. - Me.</div>
+            <TransparentContainer class="quote">
+                <blockquote>
+                    Ser o no ser, esa es la cuestion. Vence el juego, no lo
+                    juegues. Ser o no ser, esa es la cuestion.
+                </blockquote>
+                <p>- Dio Brando</p>
             </TransparentContainer>
-            <TransparentContainer>
-                <h1>Picture</h1>
-            </TransparentContainer>
+            <div class="picture">
+                <img src="/me_color.webp" />
+            </div>
             <TransparentContainer>
                 <p class="about-info">
                     <span>Name:</span>
@@ -53,6 +57,39 @@ import Bolivia from "./Bolivia.vue";
 </template>
 
 <style scoped lang="scss">
+.quote blockquote {
+    padding-left: 0.6em;
+    text-indent: -0.6em;
+    font-style: italic;
+    margin-bottom: $size-1;
+}
+.quote blockquote::before {
+    content: open-quote;
+}
+.quote blockquote::after {
+    content: close-quote;
+}
+.quote p {
+    text-align: right;
+}
+
+.picture {
+    border-radius: $size-5;
+    overflow: hidden;
+    background: red;
+}
+.picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+    transition: all 0.5s ease-out;
+}
+.picture:hover img {
+    filter: grayscale(0) saturate(2);
+    transform: scale(1.2);
+}
+
 .about-info {
     display: flex;
     justify-content: space-between;
@@ -69,6 +106,9 @@ import Bolivia from "./Bolivia.vue";
     transform: rotate3d(8, 2, -2, 35deg) scale(1.3);
     filter: saturate(2);
 }
+.bolivia {
+    margin-top: $size-3;
+}
 .bolivia svg {
     transform: rotate3d(8, 2, -2, 55deg) scale(1.2);
     transition: all 0.5s ease;
@@ -82,28 +122,53 @@ import Bolivia from "./Bolivia.vue";
 }
 .container {
     max-width: $content-width;
+    padding: $content-padding;
     margin: auto;
 
     display: grid;
-    gap: $size-3;
-    grid-template-rows: repeat(5, auto);
-    grid-template-columns: repeat(4, 1fr);
-}
-.about-cont div {
+    gap: $size-2;
+    grid-template-rows: repeat(7, auto);
+    grid-template-columns: repeat(2, 1fr);
 }
 .container div:nth-child(1) {
-    grid-area: span 3 / span 2;
+    grid-area: span 1 / span 2;
 }
 .container div:nth-child(2) {
     grid-area: span 1 / span 2;
 }
 .container div:nth-child(3) {
-    grid-area: span 4 / span 1;
-}
-.container div:nth-child(5) {
     grid-area: span 2 / span 1;
 }
 .container div:nth-child(6) {
     grid-area: span 1 / span 2;
+}
+.container div:nth-child(9) {
+    grid-area: span 1 / span 2;
+}
+
+@media (min-width: $md-breakpoint) {
+    .container {
+        gap: $size-3;
+        grid-template-rows: repeat(5, auto);
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .container div:nth-child(1) {
+        grid-area: span 3 / span 2;
+    }
+    .container div:nth-child(2) {
+        grid-area: span 1 / span 2;
+    }
+    .container div:nth-child(3) {
+        grid-area: span 3 / span 1;
+    }
+    .container div:nth-child(5) {
+        grid-area: span 3 / span 1;
+    }
+    .container div:nth-child(6) {
+        grid-area: span 1 / span 2;
+    }
+    .container div:nth-child(9) {
+        grid-area: span 1 / span 1;
+    }
 }
 </style>
