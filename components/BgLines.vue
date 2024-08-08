@@ -23,7 +23,7 @@ function generatePath(xDistance: number, yOrigin: number, yDistance: number) {
         width="1024"
         height="200"
         viewBox="0 0 1024 200"
-        stroke-width="0.5"
+        stroke-width="0.4"
         stroke="currentColor"
         fill="none"
     >
@@ -73,7 +73,7 @@ function generatePath(xDistance: number, yOrigin: number, yDistance: number) {
     top: 0;
     left: -10%;
     transform: rotate(-10deg);
-    opacity: 0.8;
+    opacity: 0.9;
     z-index: -1;
 }
 </style>

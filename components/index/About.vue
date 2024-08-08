@@ -42,17 +42,39 @@ import Bolivia from "./Bolivia.vue";
                     <Bolivia />
                 </div>
             </TransparentContainer>
-            <TransparentContainer>
-                <h1>Stats</h1>
+            <div class="stats">
+                <div class="stat-item">
+                    <p class="stat-counter">+5</p>
+                    <p class="stat-text">Years experience</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-counter">+8</p>
+                    <p class="stat-text">Web projects</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-counter">+5</p>
+                    <p class="stat-text">Mobile projects</p>
+                </div>
+            </div>
+            <TransparentContainer class="buttons">
+                <button class="custom-button">
+                    <IconsEmail />
+                    Copy email
+                </button>
+                <a class="custom-button" href="/CV.pdf" target="_blank">
+                    <IconsDocument /> Open resume
+                </a>
             </TransparentContainer>
-            <TransparentContainer>
-                <h1>Email</h1>
-            </TransparentContainer>
-            <TransparentContainer>
-                <h1>Resume</h1>
-            </TransparentContainer>
-            <TransparentContainer>
-                <h1>social</h1>
+            <TransparentContainer class="social">
+                <a href="#" target="_blank">
+                    <IconsXTwitter />
+                </a>
+                <a href="#" target="_blank">
+                    <IconsLinkedIn />
+                </a>
+                <a href="#" target="_blank">
+                    <IconsGithub />
+                </a>
             </TransparentContainer>
         </div>
     </section>
@@ -69,6 +91,7 @@ import Bolivia from "./Bolivia.vue";
     margin-top: $size-5;
     color: var(--text-2);
 }
+
 .quote blockquote {
     padding-left: 0.6em;
     text-indent: -0.6em;
@@ -99,6 +122,7 @@ import Bolivia from "./Bolivia.vue";
     object-fit: cover;
     filter: grayscale(1);
     transition: all 0.5s ease-out;
+    will-change: transform filter;
 }
 .picture:hover img {
     filter: grayscale(0) saturate(2);
@@ -115,6 +139,7 @@ import Bolivia from "./Bolivia.vue";
 .about-info span:last-child {
     font-weight: 500;
 }
+
 .bolivia-item:hover svg {
     transform: rotate3d(8, 2, -2, 35deg) scale(1.3);
     filter: saturate(2);
@@ -126,6 +151,92 @@ import Bolivia from "./Bolivia.vue";
     transform: rotate3d(8, 2, -2, 55deg) scale(1.2);
     transition: all 0.5s ease;
     filter: saturate(1);
+    will-change: transform;
+}
+
+.stats {
+    display: flex;
+    gap: $size-2;
+    .stat-item {
+        flex: 1;
+        border-radius: $size-5;
+        padding-top: $size-1;
+        padding-bottom: $size-3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+        &:first-child {
+            background: #da1010;
+        }
+        &:nth-child(2) {
+            background: #d0d010;
+        }
+        &:nth-child(3) {
+            background: #00c800;
+        }
+        .stat-counter {
+            font-size: $font-size-3xl;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+        .stat-text {
+            font-size: $font-size-md;
+            font-weight: 500;
+            text-align: center;
+        }
+    }
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .custom-button {
+        text-decoration: none;
+        background: var(--surface-3);
+        border: none;
+        font-size: $font-size-md;
+        align-items: center;
+        display: flex;
+        gap: $size-2;
+        border-radius: $size-1;
+        padding: $size-4;
+        padding-top: $size-2;
+        padding-bottom: $size-2;
+        cursor: pointer;
+        color: var(--text-2);
+        opacity: 0.8;
+        transition: all 350ms;
+        svg {
+            width: 1.4em;
+        }
+        &:hover {
+            opacity: 1;
+            filter: saturate(3);
+        }
+    }
+}
+
+.social {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    a {
+        color: var(--text-1);
+        opacity: 0.8;
+        transition: all 350ms;
+        &:hover {
+            opacity: 1;
+            filter: saturate(3);
+        }
+        svg {
+            width: 1.8em;
+            height: 1.8em;
+        }
+    }
 }
 
 .about {
@@ -158,7 +269,10 @@ import Bolivia from "./Bolivia.vue";
 .container div:nth-child(6) {
     grid-area: span 1 / span 2;
 }
-.container div:nth-child(9) {
+.container div:nth-child(7) {
+    grid-area: span 1 / span 2;
+}
+.container div:nth-child(8) {
     grid-area: span 1 / span 2;
 }
 
@@ -183,7 +297,7 @@ import Bolivia from "./Bolivia.vue";
     .container div:nth-child(6) {
         grid-area: span 1 / span 2;
     }
-    .container div:nth-child(9) {
+    .container div:nth-child(8) {
         grid-area: span 1 / span 1;
     }
 }
