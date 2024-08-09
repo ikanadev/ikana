@@ -11,6 +11,7 @@
 }
 * {
     margin: 0;
+    border: 0;
     transition: background 350ms;
 }
 body {
@@ -30,6 +31,10 @@ button,
 textarea,
 select {
     font: inherit;
+}
+button {
+    all: unset;
+    cursor: pointer;
 }
 p,
 h1,
