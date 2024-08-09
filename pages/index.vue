@@ -4,6 +4,7 @@
     <Navigation />
     <IndexHeader />
     <IndexAbout />
+    <IndexTechnologies />
 </template>
 
 <style scoped></style>
