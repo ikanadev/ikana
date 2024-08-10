@@ -144,8 +144,8 @@ const {
         gap: $size-2;
     }
     &__button {
-        width: $size-6;
-        height: $size-6;
+        width: $size-5;
+        height: $size-5;
         color: var(--text-3);
         transition: color 350ms;
         &:hover {

@@ -6,5 +6,3 @@
     <IndexAbout />
     <IndexTechnologies />
 </template>
-
-<style scoped></style>

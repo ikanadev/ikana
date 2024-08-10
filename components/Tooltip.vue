@@ -9,12 +9,10 @@ import {
     useForwardPropsEmits,
 } from "radix-vue";
 
-defineOptions({ inheritAttrs: false });
 const { content, ...props } = defineProps<
     TooltipRootProps & { content?: string }
 >();
 const emits = defineEmits<TooltipRootEmits>();
-
 const forward = useForwardPropsEmits(props, emits);
 </script>
 
@@ -30,6 +28,7 @@ const forward = useForwardPropsEmits(props, emits);
             </TooltipContent>
         </TooltipPortal>
     </TooltipRoot>
+    <span />
 </template>
 
 <style lang="scss">
