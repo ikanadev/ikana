@@ -1,5 +1,13 @@
 <script setup lang="ts">
 import Bolivia from "./Bolivia.vue";
+
+const {
+    data: quoteItem,
+    status: quoteStatus,
+    refresh: refetchQuote,
+} = useFetch("/api/quote", {
+    server: false,
+});
 </script>
 
 <template>
@@ -18,11 +26,32 @@ import Bolivia from "./Bolivia.vue";
                 </p>
             </TransparentContainer>
             <TransparentContainer class="quote">
-                <blockquote>
-                    Ser o no ser, esa es la cuestion. Vence el juego, no lo
-                    juegues. Ser o no ser, esa es la cuestion.
+                <blockquote class="quote__text">
+                    {{ quoteItem ? quoteItem.quote : "..." }}
                 </blockquote>
-                <p>- Dio Brando</p>
+                <p class="quote__author">
+                    - {{ quoteItem ? quoteItem.author : "..." }}
+                </p>
+                <div class="quote__actions">
+                    <button
+                        v-if="quoteItem"
+                        class="quote__button"
+                        :disabled="quoteStatus === 'pending'"
+                        @click="refetchQuote()"
+                        :class="{
+                            'quote__button--loading': quoteStatus === 'pending',
+                        }"
+                    >
+                        <IconsArrowCircle />
+                    </button>
+                    <Tooltip
+                        content="I don't necessarily endorse or fully believe in the ideas expressed in these quotes."
+                    >
+                        <button class="quote__button">
+                            <IconsInfoCircle />
+                        </button>
+                    </Tooltip>
+                </div>
             </TransparentContainer>
             <div class="picture">
                 <img src="/me_color.webp" />
@@ -92,23 +121,52 @@ import Bolivia from "./Bolivia.vue";
     color: var(--text-2);
 }
 
-.quote blockquote {
-    padding-left: 0.6em;
-    text-indent: -0.6em;
-    font-style: italic;
-    letter-spacing: -0.04em;
-    margin-bottom: $size-1;
+.quote {
     color: var(--text-2);
+    font-weight: 300;
+    &__text {
+        padding-left: 0.6em;
+        text-indent: -0.6em;
+        &::before {
+            content: open-quote;
+        }
+        &::after {
+            content: close-quote;
+        }
+    }
+    &__author {
+        text-align: right;
+        font-size: $font-size-md;
+        font-weight: 400;
+    }
+    &__actions {
+        display: flex;
+        gap: $size-2;
+    }
+    &__button {
+        width: $size-6;
+        height: $size-6;
+        color: var(--text-3);
+        transition: color 350ms;
+        &:hover {
+            color: var(--text-2);
+        }
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+        &--loading {
+            animation: 550ms ease 0s infinite button-spin;
+        }
+    }
 }
-.quote blockquote::before {
-    content: open-quote;
-}
-.quote blockquote::after {
-    content: close-quote;
-}
-.quote p {
-    text-align: right;
-    font-weight: 400;
+@keyframes button-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .picture {

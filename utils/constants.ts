@@ -1,3 +1,5 @@
+import type { TechItem } from "@/types";
+
 export const techItems: TechItem[] = [
   {
     url: "/techIcons/css.svg",

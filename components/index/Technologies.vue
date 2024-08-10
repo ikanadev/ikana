@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import type { TechItem } from "@/types";
 import { DialogDescription } from "radix-vue";
 
 const selectedItem = ref<TechItem | null>(null);
+
 const openedModal = computed({
     get() {
         return selectedItem.value !== null;
@@ -16,7 +18,6 @@ const openedModal = computed({
 function closeDialog() {
     selectedItem.value = null;
 }
-watch(selectedItem, () => {});
 </script>
 
 <template>
@@ -81,7 +82,7 @@ watch(selectedItem, () => {});
     opacity: 0.4;
 }
 .tech-dialog__overlay {
-    background-color: var(--surface-2-transp);
+    background-color: var(--surface-3-transp);
     backdrop-filter: blur(10px);
     position: fixed;
     inset: 0;

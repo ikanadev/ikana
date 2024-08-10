@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Theme, THEME_KEY } from "@/types";
 const isDarkTheme = Theme.Dark;
 const theme = ref(Theme.Dark);
 const dark = computed(() => theme.value === Theme.Dark);
