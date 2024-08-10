@@ -4,6 +4,9 @@ import { DialogDescription } from "radix-vue";
 
 const selectedItem = ref<TechItem | null>(null);
 
+const techItemsEl1 = ref<HTMLDivElement | null>(null);
+const techItemsEl2 = ref<HTMLDivElement | null>(null);
+
 const openedModal = computed({
     get() {
         return selectedItem.value !== null;
@@ -15,27 +18,55 @@ const openedModal = computed({
     },
 });
 
-function closeDialog() {
-    selectedItem.value = null;
-}
+watch(selectedItem, (item) => {
+    if (!techItemsEl1.value || !techItemsEl2.value) return;
+    if (item === null) {
+        techItemsEl1.value.style.animationPlayState = "running";
+        techItemsEl2.value.style.animationPlayState = "running";
+    } else {
+        techItemsEl1.value.style.animationPlayState = "paused";
+        techItemsEl2.value.style.animationPlayState = "paused";
+    }
+});
 </script>
 
 <template>
-    <section class="techs">
-        <div class="tech__container">
-            <div class="tech__items">
-                <img
-                    v-for="icon in techItems"
-                    :alt="icon.name"
-                    :src="icon.url"
-                    @click="selectedItem = icon"
-                />
-                <img
-                    v-for="icon in techItems"
-                    :alt="icon.name"
-                    :src="icon.url"
-                    @click="selectedItem = icon"
-                />
+    <section class="tech">
+        <div class="tech__section-container">
+            <div class="tech__container">
+                <div class="tech__items" ref="techItemsEl1">
+                    <img
+                        v-for="icon in techItems1"
+                        :alt="icon.name"
+                        :src="icon.url"
+                        @click="selectedItem = icon"
+                    />
+                    <img
+                        v-for="icon in techItems1"
+                        :alt="icon.name"
+                        :src="icon.url"
+                        @click="selectedItem = icon"
+                    />
+                </div>
+                <div class="tech__container">
+                    <div
+                        class="tech__items tech__items--right"
+                        ref="techItemsEl2"
+                    >
+                        <img
+                            v-for="icon in techItems2"
+                            :alt="icon.name"
+                            :src="icon.url"
+                            @click="selectedItem = icon"
+                        />
+                        <img
+                            v-for="icon in techItems2"
+                            :alt="icon.name"
+                            :src="icon.url"
+                            @click="selectedItem = icon"
+                        />
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -93,7 +124,7 @@ function closeDialog() {
         margin: $size-3;
         border-radius: $size-6;
         padding: $size-6;
-        background: var(--surface-2);
+        background: var(--surface-1);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -122,22 +153,37 @@ function closeDialog() {
     opacity: 0;
 }
 
-.techs {
+.tech {
     margin-bottom: 500px;
-    margin-top: 80px;
-}
-.tech__container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-    .tech__items {
+    margin-top: 40px;
+    &__section-container {
+        max-width: $content-width;
+        padding: 0 $content-padding;
+        margin: auto;
+    }
+    &__container {
+        overflow: hidden;
+        width: 100%;
+        mask-image: linear-gradient(
+            to left,
+            transparent 0%,
+            white 20%,
+            white 80%,
+            transparent 100%
+        );
+    }
+    &__items {
         display: flex;
         flex-wrap: nowrap;
         width: max-content;
         gap: $size-6;
         padding: $size-3;
-        animation: 45s linear 0s infinite slide;
+        animation: 35s linear 0s infinite slide-to-left;
         transition: all 0.5s;
+        &--right {
+            flex-direction: row-reverse;
+            animation: 30s linear 0s infinite reverse slide-to-left;
+        }
         img {
             width: auto;
             height: $size-8;
@@ -152,7 +198,8 @@ function closeDialog() {
         }
     }
 }
-@keyframes slide {
+
+@keyframes slide-to-left {
     0% {
         transform: translate(0%);
     }
@@ -161,10 +208,19 @@ function closeDialog() {
     }
 }
 @media (min-width: $md-breakpoint) {
-    .tech__container {
-        .tech__items {
+    .tech {
+        &__items {
             gap: $size-8;
             padding: $size-4;
+        }
+        &__container {
+            mask-image: linear-gradient(
+                to left,
+                transparent 0%,
+                white 10%,
+                white 90%,
+                transparent 100%
+            );
         }
     }
 }

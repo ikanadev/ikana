@@ -1,6 +1,6 @@
 import type { TechItem } from "@/types";
 
-export const techItems: TechItem[] = [
+export const techItems1: TechItem[] = [
   {
     url: "/techIcons/css.svg",
     name: "CSS",
@@ -26,14 +26,14 @@ export const techItems: TechItem[] = [
       "The most bitter markup language, because you know, everyone puts syntax sugar over it.",
   },
   {
-    url: "/techIcons/jest.svg",
-    name: "Jest",
-    description: "Because not even you trust your code.",
-  },
-  {
     url: "/techIcons/js.svg",
     name: "JavaScript",
     description: 'It took 10 days to make sense of "Not a number is a number".',
+  },
+  {
+    url: "/techIcons/jest.svg",
+    name: "Jest",
+    description: "Because not even you trust your code.",
   },
   {
     url: "/techIcons/linux.svg",
@@ -58,10 +58,17 @@ export const techItems: TechItem[] = [
   },
   { url: "/techIcons/nuxt.svg", name: "Nuxt", description: "Green is great." },
   {
+    url: "/techIcons/nvim.svg",
+    name: "Neovim",
+    description: "Who needs a mice to WRITE code?",
+  },
+  {
     url: "/techIcons/postgres.svg",
     name: "Postgres",
     description: "The only database you'll ever need.",
   },
+];
+export const techItems2: TechItem[] = [
   {
     url: "/techIcons/react.svg",
     name: "React",
@@ -81,6 +88,11 @@ export const techItems: TechItem[] = [
     url: "/techIcons/solid.svg",
     name: "SolidJS",
     description: "The truly reactive React. How ironic.",
+  },
+  {
+    url: "/techIcons/svelte.svg",
+    name: "Svelte",
+    description: "The new cool kid in the block.",
   },
   {
     url: "/techIcons/tailwind.svg",
@@ -120,10 +132,5 @@ export const techItems: TechItem[] = [
     url: "/techIcons/vue_use.svg",
     name: "VueUse",
     description: "Green is sustainable.",
-  },
-  {
-    url: "/techIcons/svelte.svg",
-    name: "Svelte",
-    description: "The new cool kid in the block.",
   },
 ];
