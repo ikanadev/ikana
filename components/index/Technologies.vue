@@ -31,6 +31,7 @@ watch(selectedItem, (item) => {
 </script>
 
 <template>
+    <Heading>My prefered tech</Heading>
     <section class="tech">
         <div class="tech__section-container">
             <div class="tech__container">
@@ -154,8 +155,6 @@ watch(selectedItem, (item) => {
 }
 
 .tech {
-    margin-bottom: 500px;
-    margin-top: 40px;
     &__section-container {
         max-width: $content-width;
         padding: 0 $content-padding;

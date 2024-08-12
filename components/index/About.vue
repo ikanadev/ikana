@@ -11,6 +11,7 @@ const {
 </script>
 
 <template>
+    <Heading>Overview</Heading>
     <section class="about">
         <BgLines />
         <div class="container">
@@ -298,7 +299,6 @@ const {
 }
 
 .about {
-    padding-top: $size-10;
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -306,6 +306,8 @@ const {
 .container {
     max-width: $content-width;
     padding: $content-padding;
+    padding-top: 0;
+    padding-bottom: 0;
     margin: auto;
 
     display: grid;

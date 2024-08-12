@@ -14,11 +14,13 @@
 
 <style scoped lang="scss">
 nav {
-    position: sticky;
+    position: fixed;
+    z-index: 10;
     top: $size-4;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
-    z-index: 10;
 }
 .nav__cont {
     margin-left: auto;
