@@ -1,10 +1,10 @@
 <template>
-    <nav>
+    <nav class="nav">
         <div class="nav__cont">
-            <div class="nav__logo">
+            <NuxtLink to="/" class="nav__logo">
                 <Logo />
-            </div>
-            <div class="nav__spacer" />
+            </NuxtLink>
+            <div class="nav__divider" />
             <div class="nav__theme-cont">
                 <ThemeToggleBtn />
             </div>
@@ -13,26 +13,31 @@
 </template>
 
 <style scoped lang="scss">
-nav {
+.nav {
     position: fixed;
     z-index: 10;
     top: $size-4;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
+    background: var(--surface-1);
+    border: 1px solid var(--surface-3);
+    border-radius: $size-3;
+    padding: $size-2 $size-3;
+    box-shadow: 1px 1px 10px -5px var(--primary);
 }
 .nav__cont {
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
-    background: var(--surface-1);
+    align-items: center;
 }
-.nav__spacer {
-    flex: 1;
+.nav__divider {
+    align-self: stretch;
+    border: 1px solid var(--surface-3);
+    margin: 0 $size-2;
 }
 .nav__theme-cont {
-    width: $size-7;
+    width: $size-6;
+    height: $size-6;
+    transition: none;
 }
 .nav__logo {
     width: $size-6;
